@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace SprykerTest\AsyncApi\MerchantApp;
+namespace SprykerTest\Zed\MerchantApp;
 
 use Codeception\Actor;
 
