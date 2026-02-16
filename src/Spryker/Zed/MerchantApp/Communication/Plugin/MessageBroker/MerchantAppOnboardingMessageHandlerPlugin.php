@@ -71,8 +71,11 @@ class MerchantAppOnboardingMessageHandlerPlugin extends AbstractPlugin implement
      */
     public function handles(): iterable
     {
+        /** @phpstan-ignore generator.returnType */
         yield ReadyForMerchantAppOnboardingTransfer::class => [$this, 'onReadyForMerchantAppOnboarding'];
+        /** @phpstan-ignore generator.returnType */
         yield MerchantAppOnboardingStatusChangedTransfer::class => [$this, 'onMerchantAppOnboardingStatusChanged'];
+        /** @phpstan-ignore generator.returnType */
         yield AppConfigUpdatedTransfer::class => [$this, 'onAppConfigUpdated'];
     }
 }
