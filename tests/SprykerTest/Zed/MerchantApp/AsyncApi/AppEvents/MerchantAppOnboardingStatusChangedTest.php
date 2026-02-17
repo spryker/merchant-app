@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\MerchantApp\AppEvents;
+namespace SprykerTest\Zed\MerchantApp\AsyncApi\AppEvents;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\AppConfigTransfer;
@@ -22,6 +22,7 @@ use SprykerTest\Zed\MerchantApp\MerchantAppAsyncApiTester;
  * @group SprykerTest
  * @group Zed
  * @group MerchantApp
+ * @group AsyncApi
  * @group AppEvents
  * @group MerchantAppOnboardingStatusChangedTest
  * Add your own group annotations below this line
