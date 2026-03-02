@@ -28,11 +28,6 @@ class MerchantAppHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer
-     */
     public function haveReadyForMerchantAppOnboardingTransfer(array $seed = []): ReadyForMerchantAppOnboardingTransfer
     {
         return (new ReadyForMerchantAppOnboardingBuilder($seed))
@@ -42,21 +37,11 @@ class MerchantAppHelper extends Module
             ->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusChangedTransfer
-     */
     public function haveMerchantAppOnboardingStatusChangedTransfer(array $seed = []): MerchantAppOnboardingStatusChangedTransfer
     {
         return (new MerchantAppOnboardingStatusChangedBuilder($seed))->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingTransfer
-     */
     public function haveMerchantAppOnboarding(array $seed = []): MerchantAppOnboardingTransfer
     {
         $additionalContentBuilder = (new MerchantOnboardingContentBuilder())->withAdditionalLink()->withAnotherAdditionalLink();
@@ -64,11 +49,6 @@ class MerchantAppHelper extends Module
         return (new MerchantAppOnboardingBuilder($seed))->withOnboarding($seed)->withAdditionalContent($additionalContentBuilder)->build();
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingTransfer
-     */
     public function haveMerchantAppOnboardingPersisted(array $seed = []): MerchantAppOnboardingTransfer
     {
         $merchantAppOnboardingTransfer = $this->haveMerchantAppOnboarding($seed);
@@ -89,11 +69,6 @@ class MerchantAppHelper extends Module
         return $merchantAppOnboardingTransfer;
     }
 
-    /**
-     * @param array $seed
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer
-     */
     public function haveMerchantAppOnboardingStatus(array $seed = []): MerchantAppOnboardingStatusTransfer
     {
         return (new MerchantAppOnboardingStatusBuilder($seed))->build();
@@ -138,11 +113,6 @@ class MerchantAppHelper extends Module
         return $merchantAppOnboardingStatusTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer|\Generated\Shared\Transfer\MerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function seeMerchantAppOnboardingEntityInDatabase(
         ReadyForMerchantAppOnboardingTransfer|MerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
     ): void {
@@ -158,13 +128,6 @@ class MerchantAppHelper extends Module
         $this->assertJson($spyMerchantAppOnboardingEntity->getAdditionalContent());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     * @param string $expectedStatus
-     * @param string|null $additionalInfo
-     *
-     * @return void
-     */
     public function seeMerchantAppOnboardingStatusEntityInDatabase(
         MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer,
         string $expectedStatus = MerchantAppOnboardingStatusInterface::INCOMPLETE,
@@ -190,11 +153,6 @@ class MerchantAppHelper extends Module
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     *
-     * @return void
-     */
     public function dontSeeMerchantAppOnboardingStatusEntityInDatabase(MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer): void
     {
         $spyMerchantAppOnboardingStatusEntity = SpyMerchantAppOnboardingStatusQuery::create()
@@ -204,11 +162,6 @@ class MerchantAppHelper extends Module
         $this->assertNull($spyMerchantAppOnboardingStatusEntity, 'Expected not to find MerchantAppOnboardingStatus entity in the database but it was found.');
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingTransfer $merchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function dontSeeMerchantAppOnboardingEntityInDatabase(MerchantAppOnboardingTransfer $merchantAppOnboardingTransfer): void
     {
         $spyMerchantAppOnboardingEntity = SpyMerchantAppOnboardingQuery::create()

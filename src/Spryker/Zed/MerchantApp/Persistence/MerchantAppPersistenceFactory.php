@@ -23,9 +23,6 @@ use Spryker\Zed\MerchantApp\Persistence\Propel\Mapper\ReadyForMerchantAppOnboard
  */
 class MerchantAppPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Spryker\Zed\MerchantApp\Persistence\Propel\Mapper\ReadyForMerchantAppOnboardingMapper
-     */
     public function createReadyForMerchantAppOnboardingMapper(): ReadyForMerchantAppOnboardingMapper
     {
         return new ReadyForMerchantAppOnboardingMapper(
@@ -33,41 +30,26 @@ class MerchantAppPersistenceFactory extends AbstractPersistenceFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantApp\Persistence\Propel\Mapper\MerchantAppOnboardingStatusMapper
-     */
     public function createMerchantAppOnboardingStatusMapper(): MerchantAppOnboardingStatusMapper
     {
         return new MerchantAppOnboardingStatusMapper();
     }
 
-    /**
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatusQuery
-     */
     public function createMerchantAppOnboardingStatusQuery(): SpyMerchantAppOnboardingStatusQuery
     {
         return SpyMerchantAppOnboardingStatusQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingQuery
-     */
     public function createMerchantAppOnboardingQuery(): SpyMerchantAppOnboardingQuery
     {
         return SpyMerchantAppOnboardingQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantApp\Persistence\Propel\Mapper\MerchantAppOnboardingMapper
-     */
     public function createMerchantAppOnboardingMapper(): MerchantAppOnboardingMapper
     {
         return new MerchantAppOnboardingMapper($this->createMerchantAppOnboardingStatusMapper());
     }
 
-    /**
-     * @return \Spryker\Zed\MerchantApp\Dependency\Service\MerchantAppToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): MerchantAppToUtilEncodingServiceInterface
     {
         /** @phpstan-var \Spryker\Zed\MerchantApp\Dependency\Service\MerchantAppToUtilEncodingServiceInterface */

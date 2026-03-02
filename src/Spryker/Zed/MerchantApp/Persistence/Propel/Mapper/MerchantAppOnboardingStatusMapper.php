@@ -14,12 +14,6 @@ use Propel\Runtime\Collection\Collection;
 
 class MerchantAppOnboardingStatusMapper
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatus $merchantAppOnboardingStatusEntity
-     *
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatus
-     */
     public function mapMerchantAppOnboardingStatusTransferToMerchantAppOnboardingStatusEntity(
         MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer,
         SpyMerchantAppOnboardingStatus $merchantAppOnboardingStatusEntity
@@ -38,12 +32,6 @@ class MerchantAppOnboardingStatusMapper
         return $merchantAppOnboardingStatusEntity;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatus $merchantAppOnboardingStatusEntity
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer
-     */
     public function mapMerchantAppOnboardingStatusEntityToMerchantAppOnboardingStatusTransfer(
         SpyMerchantAppOnboardingStatus $merchantAppOnboardingStatusEntity,
         MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
@@ -56,12 +44,6 @@ class MerchantAppOnboardingStatusMapper
         return $merchantAppOnboardingStatusTransfer;
     }
 
-    /**
-     * @param \Propel\Runtime\Collection\Collection $merchantAppOnboardingStatusEntityCollection
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer $merchantAppOnboardingStatusTransferCollection
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer
-     */
     public function mapMerchantAppOnboardingEntityCollectionToMerchantAppOnboardingTransferCollection(
         Collection $merchantAppOnboardingStatusEntityCollection,
         MerchantAppOnboardingStatusCollectionTransfer $merchantAppOnboardingStatusTransferCollection

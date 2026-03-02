@@ -19,20 +19,11 @@ class ReadyForMerchantAppOnboardingMapper
      */
     protected MerchantAppToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Dependency\Service\MerchantAppToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(MerchantAppToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboarding $merchantAppOnboardingEntity
-     *
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboarding
-     */
     public function mapReadyForMerchantAppOnboardingTransferToMerchantAppOnboardingEntity(
         ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer,
         SpyMerchantAppOnboarding $merchantAppOnboardingEntity

@@ -33,9 +33,6 @@ class ReadyForMerchantAppOnboardingTest extends Unit
      */
     protected MerchantAppAsyncApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGivenAnAppSendsAReadyForMerchantAppOnboardingMessageWithAStatusMapWhenIHandleTheMessageThenInformationAboutTheAppThatIsReadyToOnboardMerchantsIsPersisted(): void
     {
         // Arrange
@@ -62,9 +59,6 @@ class ReadyForMerchantAppOnboardingTest extends Unit
         $this->tester->seeMerchantAppOnboardingEntityInDatabase($readyForMerchantAppOnboardingTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenAMerchantOnboardingAlreadyExistsAndAnAppSendsAReadyForMerchantAppOnboardingMessageAgainWhenIHandleTheMessageThenInformationAboutTheAppThatIsReadyToOnboardMerchantsIsUpdated(): void
     {
         // Arrange

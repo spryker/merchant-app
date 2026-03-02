@@ -33,9 +33,6 @@ class AppConfigUpdatedTest extends Unit
      */
     protected MerchantAppAsyncApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testMerchantAppOnboardingDataIsRemovedWhenAppConfigUpdatedMessageWithInactiveStatusIsHandled(): void
     {
         // Arrange
@@ -68,9 +65,6 @@ class AppConfigUpdatedTest extends Unit
         $this->tester->dontSeeMerchantAppOnboardingEntityInDatabase($merchantAppOnboardingTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testMerchantAppOnboardingDataStillExistsWhenAppConfigUpdatedMessageWithActiveStatusIsHandled(): void
     {
         // Arrange

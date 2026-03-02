@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\MerchantAppOnboardingStatusChangedTransfer;
 
 interface MerchantAppOnboardingStatusChangedMessageHandlerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusChangedTransfer $merchantOnboardingStatusChangedTransfer
-     *
-     * @return void
-     */
     public function handleMerchantAppOnboardingStatusChanged(MerchantAppOnboardingStatusChangedTransfer $merchantOnboardingStatusChangedTransfer): void;
 }

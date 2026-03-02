@@ -17,10 +17,6 @@ class AppConfigUpdatedMessageHandler implements AppConfigUpdatedMessageHandlerIn
 
     protected MerchantAppEntityManagerInterface $merchantAppEntityManager;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppRepositoryInterface $merchantAppRepository
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppEntityManagerInterface $merchantAppEntityManager
-     */
     public function __construct(
         MerchantAppRepositoryInterface $merchantAppRepository,
         MerchantAppEntityManagerInterface $merchantAppEntityManager
@@ -29,11 +25,6 @@ class AppConfigUpdatedMessageHandler implements AppConfigUpdatedMessageHandlerIn
         $this->merchantAppEntityManager = $merchantAppEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AppConfigUpdatedTransfer $appConfigUpdatedTransfer
-     *
-     * @return void
-     */
     public function handleAppConfigUpdatedTransfer(AppConfigUpdatedTransfer $appConfigUpdatedTransfer): void
     {
         if ($appConfigUpdatedTransfer->getIsActiveOrFail()) {

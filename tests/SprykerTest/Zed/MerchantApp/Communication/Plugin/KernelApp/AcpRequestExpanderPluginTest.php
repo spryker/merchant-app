@@ -39,9 +39,6 @@ class AcpRequestExpanderPluginTest extends Unit
      */
     protected MerchantAppCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testMerchantReferenceGetsAddedWhenMerchantUserIsLoggedIn(): void
     {
         // Arrange
@@ -74,9 +71,6 @@ class AcpRequestExpanderPluginTest extends Unit
         $this->assertSame($merchantReference, $acpHttpRequestTransfer->getHeaders()['x-merchant-reference']);
     }
 
-    /**
-     * @return void
-     */
     public function testMerchantReferenceIsNotAddedWhenMerchantUserIsNotLoggedIn(): void
     {
         // Arrange
@@ -102,9 +96,6 @@ class AcpRequestExpanderPluginTest extends Unit
         $this->assertArrayNotHasKey('x-merchant-reference', $acpHttpRequestTransfer->getHeaders());
     }
 
-    /**
-     * @return void
-     */
     public function testMerchantReferenceIsNotAddedWhenMerchantUserIsLoggedInButMerchantNotInTransfer(): void
     {
         // Arrange

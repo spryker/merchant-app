@@ -34,9 +34,6 @@ class MerchantAppOnboardingStatusChangedTest extends Unit
      */
     protected MerchantAppAsyncApiTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGivenTheOnboardingIsInitializedWhenIHandleTheMerchantAppOnboardingStatusChangedMessageAndTheNewStatusIsCompletedThenTheStatusOfTheOnboardingIsSetToCompleted(): void
     {
         // Arrange
@@ -70,9 +67,6 @@ class MerchantAppOnboardingStatusChangedTest extends Unit
         $this->tester->seeMerchantAppOnboardingStatusEntityInDatabase($merchantAppOnboardingStatusTransfer, MerchantAppOnboardingStatusInterface::COMPLETED);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenTheOnboardingIsInitializedWhenIHandleTheMerchantAppOnboardingStatusChangedMessageAndTheNewStatusIsRestrictedTheStatusIsSetToRestricted(): void
     {
         // Arrange
@@ -106,9 +100,6 @@ class MerchantAppOnboardingStatusChangedTest extends Unit
         $this->tester->seeMerchantAppOnboardingStatusEntityInDatabase($merchantAppOnboardingStatusTransfer, MerchantAppOnboardingStatusInterface::RESTRICTED);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenTheOnboardingIsNotInitializedWhenIHandleTheMerchantAppOnboardingStatusChangedMessageThenTheMessageIsIgnored(): void
     {
         // Arrange

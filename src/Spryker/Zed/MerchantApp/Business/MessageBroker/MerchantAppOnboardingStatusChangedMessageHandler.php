@@ -16,19 +16,11 @@ class MerchantAppOnboardingStatusChangedMessageHandler implements MerchantAppOnb
 {
     protected MerchantAppOnboardingStatusInterface $merchantAppOnboardingStatus;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Business\MerchantAppOnboarding\MerchantAppOnboardingStatusInterface $merchantAppOnboardingStatus
-     */
     public function __construct(MerchantAppOnboardingStatusInterface $merchantAppOnboardingStatus)
     {
         $this->merchantAppOnboardingStatus = $merchantAppOnboardingStatus;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusChangedTransfer $merchantOnboardingStatusChangedTransfer
-     *
-     * @return void
-     */
     public function handleMerchantAppOnboardingStatusChanged(MerchantAppOnboardingStatusChangedTransfer $merchantOnboardingStatusChangedTransfer): void
     {
         $merchantOnboardingStatusTransfer = (new MerchantAppOnboardingStatusTransfer())->fromArray($merchantOnboardingStatusChangedTransfer->toArray(), true);

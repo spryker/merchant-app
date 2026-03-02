@@ -31,9 +31,6 @@ class MerchantAppFacadeTest extends Unit
 {
     protected MerchantAppBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingExistsWhenIFetchThoseThenIGetBackAListOfAll(): void
     {
         // Arrange
@@ -55,9 +52,6 @@ class MerchantAppFacadeTest extends Unit
         $this->assertNotEmpty($merchantAppOnboardingCollectionTransfer->getOnboardings()[1]->getAdditionalContent()->getLinks());
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingExistsWhenIFetchThoseForASpecificTypeThenIGetBackAListOfThisType(): void
     {
         // Arrange
@@ -77,9 +71,6 @@ class MerchantAppFacadeTest extends Unit
         $this->tester->assertMerchantAppOnboardingCountByType($merchantAppOnboardingCollectionTransfer, 'foo', 1);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingExistsWhenIFetchThoseForASpecificAppThenIGetBackAListOfOnboardingsForTheRequestedApp(): void
     {
         // Arrange
@@ -98,9 +89,6 @@ class MerchantAppFacadeTest extends Unit
         $this->tester->assertMerchantAppOnboardingCountByAppIdentifier($merchantAppOnboardingCollectionTransfer, $merchantOnboardingDetailsTransfer->getAppIdentifier(), 1);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingExistsAndMerchantAppOnboardingWasInitializedWhenIFetchTheOnboardingDetailsThenICanSeeTheMerchantAppOnboardingStatus(): void
     {
         // Arrange

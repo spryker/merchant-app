@@ -18,19 +18,11 @@ class Request implements RequestInterface
      */
     protected MerchantAppToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Dependency\Facade\MerchantAppToMerchantUserFacadeInterface $merchantUserFacade
-     */
     public function __construct(MerchantAppToMerchantUserFacadeInterface $merchantUserFacade)
     {
         $this->merchantUserFacade = $merchantUserFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\AcpHttpRequestTransfer $acpHttpRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\AcpHttpRequestTransfer
-     */
     public function addMerchantReferenceHeader(AcpHttpRequestTransfer $acpHttpRequestTransfer): AcpHttpRequestTransfer
     {
         try {

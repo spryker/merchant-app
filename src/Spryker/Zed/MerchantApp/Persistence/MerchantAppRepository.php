@@ -20,11 +20,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class MerchantAppRepository extends AbstractRepository implements MerchantAppRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer
-     */
     public function getMerchantAppOnboardingStatusCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingStatusCollectionTransfer {
@@ -39,12 +34,6 @@ class MerchantAppRepository extends AbstractRepository implements MerchantAppRep
         );
     }
 
-    /**
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatusQuery $merchantAppOnboardingStatusQuery
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatusQuery
-     */
     protected function applyStatusCriteria(
         SpyMerchantAppOnboardingStatusQuery $merchantAppOnboardingStatusQuery,
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingCriteriaTransfer
@@ -72,11 +61,6 @@ class MerchantAppRepository extends AbstractRepository implements MerchantAppRep
         return $merchantAppOnboardingStatusQuery;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingCollectionTransfer
-     */
     public function getMerchantAppOnboardingCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingCollectionTransfer {
@@ -97,12 +81,6 @@ class MerchantAppRepository extends AbstractRepository implements MerchantAppRep
         );
     }
 
-    /**
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingQuery $merchantAppOnboardingQuery
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingCriteriaTransfer
-     *
-     * @return \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingQuery
-     */
     protected function applyOnboardingCriteria(
         SpyMerchantAppOnboardingQuery $merchantAppOnboardingQuery,
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingCriteriaTransfer

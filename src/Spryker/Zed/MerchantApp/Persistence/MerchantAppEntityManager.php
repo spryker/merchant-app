@@ -18,11 +18,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class MerchantAppEntityManager extends AbstractEntityManager implements MerchantAppEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function persistAppMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void
     {
         $spyMerchantAppOnboardingEntity = SpyMerchantAppOnboardingQuery::create()
@@ -37,11 +32,6 @@ class MerchantAppEntityManager extends AbstractEntityManager implements Merchant
         $merchantAppOnboardingEntity->save();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatus
-     *
-     * @return void
-     */
     public function persistAppMerchantAppOnboardingStatus(MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatus): void
     {
         $merchantAppOnboardingStatusEntity = new SpyMerchantAppOnboardingStatus();
@@ -61,11 +51,6 @@ class MerchantAppEntityManager extends AbstractEntityManager implements Merchant
         $merchantAppOnboardingStatusEntity->save();
     }
 
-    /**
-     * @param string $appIdentifier
-     *
-     * @return void
-     */
     public function deleteMerchantAppOnboardingByAppIdentifier(string $appIdentifier): void
     {
         $merchantAppOnboardingEntities = $this->getFactory()->createMerchantAppOnboardingQuery()

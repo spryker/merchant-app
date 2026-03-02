@@ -17,19 +17,11 @@ class ReadyForMerchantAppOnboardingMessageHandler implements ReadyForMerchantApp
      */
     protected MerchantAppOnboardingWriterInterface $merchantAppOnboardingDetails;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Business\MerchantAppOnboarding\MerchantAppOnboardingWriterInterface $merchantAppOnboardingDetails
-     */
     public function __construct(MerchantAppOnboardingWriterInterface $merchantAppOnboardingDetails)
     {
         $this->merchantAppOnboardingDetails = $merchantAppOnboardingDetails;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function handleReadyForMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void
     {
         $this->merchantAppOnboardingDetails->persistAppMerchantAppOnboarding($readyForMerchantAppOnboardingTransfer);

@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\AppConfigUpdatedTransfer;
 
 interface AppConfigUpdatedMessageHandlerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\AppConfigUpdatedTransfer $appConfigUpdatedTransfer
-     *
-     * @return void
-     */
     public function handleAppConfigUpdatedTransfer(AppConfigUpdatedTransfer $appConfigUpdatedTransfer): void;
 }

@@ -48,9 +48,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
      */
     protected MerchantAppBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGivenNoMerchantAppOnboardingExistsForTheRequestedAppIdentifierAndTypeWhenITryToInitializeTheOnboardingProcessThenAnExceptionWillBeThrown(): void
     {
         // Arrange
@@ -73,9 +70,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->tester->getFacade()->initializeMerchantAppOnboarding($merchantAppOnboardingInitializationRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingWithIFrameStrategyWhenIInitializeTheOnboardingProcessThenTheOnboardingStatusIsInitializedAndTheResponseContainsTheIFrameUrl(): void
     {
         // Arrange
@@ -106,9 +100,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->assertSame($merchantAppOnboardingTransfer->getOnboarding()->getUrl(), $merchantAppOnboardingInitializationResponseTransfer->getUrl());
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingWithRedirectStrategyWhenIInitializeTheOnboardingProcessThenTheOnboardingStatusIsInitializedAndTheResponseContainsTheRedirectUrl(): void
     {
         // Arrange
@@ -146,9 +137,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->tester->seeMerchantAppOnboardingStatusEntityInDatabase($expectedMerchantAppOnboardingStatusTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingWithApiStrategyWhenIInitializeTheOnboardingProcessThenTheOnboardingStatusIsInitializedAndTheAppApiIsCalledAndTheResponseContainsTheRedirectUrl(): void
     {
         // Arrange
@@ -203,9 +191,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->tester->seeMerchantAppOnboardingStatusEntityInDatabase($expectedMerchantAppOnboardingStatusTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGivenMerchantAppOnboardingWithApiStrategyWhenIInitializeTheOnboardingProcessThenTheOnboardingStatusIsInitializedAndTheAppApiIsCalledAndTheResponseContainsErrors(): void
     {
         // Arrange
@@ -247,9 +232,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->assertSame(['error message'], $merchantAppOnboardingInitializationResponseTransfer->getErrors());
     }
 
-    /**
-     * @return void
-     */
     public function testValidationThrowsExceptionWhenTheOnboardingTypeIsMissingInTheInitializationRequest(): void
     {
         // Arrange
@@ -263,9 +245,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->tester->getFacade()->initializeMerchantAppOnboarding($merchantAppOnboardingInitializationRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testValidationThrowsExceptionWhenTheAppIdentifierIsMissingInTheInitializationRequest(): void
     {
         // Arrange
@@ -280,9 +259,6 @@ class MerchantAppFacadeInitializeOnboardingTest extends Unit
         $this->tester->getFacade()->initializeMerchantAppOnboarding($merchantAppOnboardingInitializationRequestTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testValidationThrowsExceptionWhenTheMerchantIsMissingInTheInitializationRequest(): void
     {
         // Arrange

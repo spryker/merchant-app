@@ -46,10 +46,5 @@ interface MerchantAppOnboardingStatusInterface
      */
     public const REJECTED = 'rejected';
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     *
-     * @return void
-     */
     public function updateMerchantAppOnboardingStatus(MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer): void;
 }

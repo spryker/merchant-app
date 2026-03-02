@@ -12,24 +12,9 @@ use Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer;
 
 interface MerchantAppEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function persistAppMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatus
-     *
-     * @return void
-     */
     public function persistAppMerchantAppOnboardingStatus(MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatus): void;
 
-    /**
-     * @param string $appIdentifier
-     *
-     * @return void
-     */
     public function deleteMerchantAppOnboardingByAppIdentifier(string $appIdentifier): void;
 }

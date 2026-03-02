@@ -14,11 +14,6 @@ use Generated\Shared\Transfer\MerchantAppOnboardingInitializationResponseTransfe
 
 interface MerchantAppOnboardingInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingCollectionTransfer
-     */
     public function getMerchantAppOnboardingCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingCollectionTransfer;

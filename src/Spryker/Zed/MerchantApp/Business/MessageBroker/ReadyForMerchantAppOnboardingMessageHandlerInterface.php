@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer;
 
 interface ReadyForMerchantAppOnboardingMessageHandlerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer
-     *
-     * @return void
-     */
     public function handleReadyForMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void;
 }

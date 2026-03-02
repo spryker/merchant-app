@@ -13,20 +13,10 @@ use Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer;
 
 interface MerchantAppRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer
-     */
     public function getMerchantAppOnboardingStatusCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingStatusCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingCollectionTransfer
-     */
     public function getMerchantAppOnboardingCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingCollectionTransfer;

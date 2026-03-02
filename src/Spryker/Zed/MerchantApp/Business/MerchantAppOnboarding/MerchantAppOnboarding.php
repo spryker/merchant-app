@@ -65,12 +65,6 @@ class MerchantAppOnboarding implements MerchantAppOnboardingInterface
      */
     protected MerchantAppToKernelAppFacadeInterface $kernelAppFacade;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\MerchantAppConfig $merchantAppConfig
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppRepositoryInterface $merchantAppRepository
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppEntityManagerInterface $merchantAppEntityManager
-     * @param \Spryker\Zed\MerchantApp\Dependency\Facade\MerchantAppToKernelAppFacadeInterface $kernelAppFacade
-     */
     public function __construct(
         MerchantAppConfig $merchantAppConfig,
         MerchantAppRepositoryInterface $merchantAppRepository,
@@ -83,11 +77,6 @@ class MerchantAppOnboarding implements MerchantAppOnboardingInterface
         $this->kernelAppFacade = $kernelAppFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingCollectionTransfer
-     */
     public function getMerchantAppOnboardingCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingCollectionTransfer {

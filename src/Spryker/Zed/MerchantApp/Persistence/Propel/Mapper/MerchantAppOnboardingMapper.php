@@ -20,9 +20,6 @@ class MerchantAppOnboardingMapper
      */
     protected MerchantAppOnboardingStatusMapper $merchantAppOnboardingStatusMapper;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Persistence\Propel\Mapper\MerchantAppOnboardingStatusMapper $merchantAppOnboardingStatusMapper
-     */
     public function __construct(MerchantAppOnboardingStatusMapper $merchantAppOnboardingStatusMapper)
     {
         $this->merchantAppOnboardingStatusMapper = $merchantAppOnboardingStatusMapper;
@@ -50,12 +47,6 @@ class MerchantAppOnboardingMapper
         return $merchantAppOnboardingDetailsCollectionTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboarding $merchantAppOnboardingEntity
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingTransfer $merchantAppOnboardingTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantAppOnboardingTransfer
-     */
     protected function mapMerchantAppOnboardingEntityToMerchantAppOnboardingTransfer(
         SpyMerchantAppOnboarding $merchantAppOnboardingEntity,
         MerchantAppOnboardingTransfer $merchantAppOnboardingTransfer

@@ -25,21 +25,12 @@ class MerchantAppOnboardingStatus implements MerchantAppOnboardingStatusInterfac
      */
     protected MerchantAppRepositoryInterface $merchantAppRepository;
 
-    /**
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppEntityManagerInterface $merchantAppEntityManager
-     * @param \Spryker\Zed\MerchantApp\Persistence\MerchantAppRepositoryInterface $merchantAppRepository
-     */
     public function __construct(MerchantAppEntityManagerInterface $merchantAppEntityManager, MerchantAppRepositoryInterface $merchantAppRepository)
     {
         $this->merchantAppEntityManager = $merchantAppEntityManager;
         $this->merchantAppRepository = $merchantAppRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer
-     *
-     * @return void
-     */
     public function updateMerchantAppOnboardingStatus(MerchantAppOnboardingStatusTransfer $merchantAppOnboardingStatusTransfer): void
     {
         $merchantAppOnboardingStatusCriteria = new MerchantAppOnboardingCriteriaTransfer();
