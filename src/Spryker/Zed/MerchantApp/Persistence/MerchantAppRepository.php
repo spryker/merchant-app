@@ -10,9 +10,12 @@ namespace Spryker\Zed\MerchantApp\Persistence;
 use Generated\Shared\Transfer\MerchantAppOnboardingCollectionTransfer;
 use Generated\Shared\Transfer\MerchantAppOnboardingCriteriaTransfer;
 use Generated\Shared\Transfer\MerchantAppOnboardingStatusCollectionTransfer;
+use Orm\Zed\KernelApp\Persistence\Map\SpyAppConfigTableMap;
 use Orm\Zed\MerchantApp\Persistence\Map\SpyMerchantAppOnboardingStatusTableMap;
+use Orm\Zed\MerchantApp\Persistence\Map\SpyMerchantAppOnboardingTableMap;
 use Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingQuery;
 use Orm\Zed\MerchantApp\Persistence\SpyMerchantAppOnboardingStatusQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
 
 /**
@@ -20,6 +23,10 @@ use Spryker\Zed\Kernel\Persistence\AbstractRepository;
  */
 class MerchantAppRepository extends AbstractRepository implements MerchantAppRepositoryInterface
 {
+    protected const string CONDITION_NO_CONFIG = 'noConfig';
+
+    protected const string CONDITION_ACTIVE_CONFIG = 'activeConfig';
+
     public function getMerchantAppOnboardingStatusCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingStatusCollectionTransfer {
@@ -61,17 +68,26 @@ class MerchantAppRepository extends AbstractRepository implements MerchantAppRep
         return $merchantAppOnboardingStatusQuery;
     }
 
+    /**
+     * @module KernelApp
+     */
     public function getMerchantAppOnboardingCollection(
         MerchantAppOnboardingCriteriaTransfer $merchantAppOnboardingStatusCriteriaTransfer
     ): MerchantAppOnboardingCollectionTransfer {
         $merchantAppOnboardingQuery = $this->getFactory()->createMerchantAppOnboardingQuery();
-        $merchantAppOnboardingQuery
-            ->joinWithSpyAppConfig()
-            ->useSpyAppConfigQuery()
-                ->filterByIsActive(true)
-            ->endUse();
 
         $merchantAppOnboardingQuery = $this->applyOnboardingCriteria($merchantAppOnboardingQuery, $merchantAppOnboardingStatusCriteriaTransfer);
+
+        // Exclude onboardings whose app config exists but is inactive. Onboardings with no config entry are always included.
+        $merchantAppOnboardingQuery
+            ->addJoin(
+                SpyMerchantAppOnboardingTableMap::COL_APP_IDENTIFIER,
+                SpyAppConfigTableMap::COL_APP_IDENTIFIER,
+                Criteria::LEFT_JOIN,
+            )
+            ->condition(static::CONDITION_NO_CONFIG, sprintf('%s IS NULL', SpyAppConfigTableMap::COL_APP_IDENTIFIER))
+            ->condition(static::CONDITION_ACTIVE_CONFIG, sprintf('%s = 1', SpyAppConfigTableMap::COL_IS_ACTIVE))
+            ->combine([static::CONDITION_NO_CONFIG, static::CONDITION_ACTIVE_CONFIG], Criteria::LOGICAL_OR);
 
         $merchantAppOnboardingEntityCollection = $merchantAppOnboardingQuery->find();
 

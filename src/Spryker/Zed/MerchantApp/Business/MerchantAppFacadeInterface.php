@@ -92,6 +92,17 @@ interface MerchantAppFacadeInterface
     ): MerchantAppOnboardingInitializationResponseTransfer;
 
     /**
+     * Specification:
+     * - Persists the MerchantApp onboarding data directly without message bus handling.
+     * - Requires `ReadyForMerchantAppOnboardingTransfer.type` to be set.
+     * - Requires `ReadyForMerchantAppOnboardingTransfer.appIdentifier` to be set.
+     * - Requires `ReadyForMerchantAppOnboardingTransfer.onboarding` to be set.
+     *
+     * @api
+     */
+    public function createMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void;
+
+    /**
      *  Specification:
      *  - Adds the MerchantReference to the `AcpRequestRansfer` header when a current merchant user is available.
      *  - Returns a `AcpRequestRansfer`.

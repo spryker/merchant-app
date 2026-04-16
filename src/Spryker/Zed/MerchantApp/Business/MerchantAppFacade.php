@@ -101,6 +101,16 @@ class MerchantAppFacade extends AbstractFacade implements MerchantAppFacadeInter
      * {@inheritDoc}
      *
      * @api
+     */
+    public function createMerchantAppOnboarding(ReadyForMerchantAppOnboardingTransfer $readyForMerchantAppOnboardingTransfer): void
+    {
+        $this->getFactory()->createMerchantAppOnboardingDetails()->persistAppMerchantAppOnboarding($readyForMerchantAppOnboardingTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
      *
      * @param \Generated\Shared\Transfer\AcpHttpRequestTransfer $acpHttpRequestTransfer
      *

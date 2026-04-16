@@ -14,10 +14,6 @@
             <unique-column name="type"/>
         </unique>
 
-        <foreign-key name="spy_merchant_app_onboarding-app_identifier" foreignTable="spy_app_config" onDelete="CASCADE">
-            <reference local="app_identifier" foreign="app_identifier"/>
-        </foreign-key>
-
         <id-method-parameter value="spy_merchant_app_onboarding_pk_seq"/>
 
         <behavior name="timestampable"/>

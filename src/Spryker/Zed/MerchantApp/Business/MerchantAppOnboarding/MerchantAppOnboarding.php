@@ -201,8 +201,18 @@ class MerchantAppOnboarding implements MerchantAppOnboardingInterface
             return $merchantAppOnboardingInitializationResponseTransfer;
         }
 
+        $redirectUrl = $merchantAppOnboardingTransfer->getOnboardingOrFail()->getUrl();
+        $queryParams = array_filter([
+            'successUrl' => $merchantAppOnboardingInitializationRequestTransfer->getSuccessUrl(),
+            'refreshUrl' => $merchantAppOnboardingInitializationRequestTransfer->getRefreshUrl(),
+        ]);
+
+        if ($queryParams) {
+            $redirectUrl = sprintf('%s?%s', $redirectUrl, http_build_query($queryParams));
+        }
+
         $merchantAppOnboardingInitializationResponseTransfer
-            ->setUrl($merchantAppOnboardingTransfer->getOnboardingOrFail()->getUrl())
+            ->setUrl($redirectUrl)
             ->setStrategy($merchantAppOnboardingTransfer->getOnboardingOrFail()->getStrategy());
 
         return $merchantAppOnboardingInitializationResponseTransfer;
