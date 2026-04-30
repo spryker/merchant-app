@@ -86,7 +86,7 @@ class MerchantAppRepository extends AbstractRepository implements MerchantAppRep
                 Criteria::LEFT_JOIN,
             )
             ->condition(static::CONDITION_NO_CONFIG, sprintf('%s IS NULL', SpyAppConfigTableMap::COL_APP_IDENTIFIER))
-            ->condition(static::CONDITION_ACTIVE_CONFIG, sprintf('%s = 1', SpyAppConfigTableMap::COL_IS_ACTIVE))
+            ->condition(static::CONDITION_ACTIVE_CONFIG, sprintf('%s = TRUE', SpyAppConfigTableMap::COL_IS_ACTIVE))
             ->combine([static::CONDITION_NO_CONFIG, static::CONDITION_ACTIVE_CONFIG], Criteria::LOGICAL_OR);
 
         $merchantAppOnboardingEntityCollection = $merchantAppOnboardingQuery->find();
